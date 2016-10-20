@@ -11,9 +11,25 @@
 
   function HandService ($http) {
     this.deck = []
+    this.hand = []
+
     this.draw = () => {
-      return $http.get(baseUrl + newDeckPath)
+      if (!this.deck.length) {
+        return $http.get(baseUrl + newDeckPath)
+        .then(({ data: { cards }}) => {
+          this.deck = cards
+          drawACard.call(this)
+        })
+      } else {
+        drawACard.call(this)
+      }
     }
+  }
+
+  function drawACard () {
+    let aCard = this.deck.pop()
+    this.hand.push(aCard)
+    console.log(this.deck.length, this.hand);
   }
 
 }());

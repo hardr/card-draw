@@ -7,10 +7,9 @@
   HandController.$inject = ['HandService']
 
   function HandController (HandService) {
-    HandService.draw().then(({ data: { cards }}) => {
-      this.cards = cards
-    })
-    this.something = 'yayaya'
+
+    this.hand = HandService.hand
+    HandService.draw()
   }
 
 }());
