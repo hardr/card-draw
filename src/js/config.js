@@ -3,9 +3,9 @@
   'use strict';
 
   angular
-    .module('myApp.config', [])
-    .config(appConfig);
+    .module('CardDrawApp.config', [])
+    .config(cardDrawConfig);
 
-  function appConfig() {}
+  function cardDrawConfig() {}
 
 })();
